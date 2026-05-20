@@ -1,0 +1,14 @@
+.nav-link-custom {
+  color: #E3F2FD;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+.nav-link-custom:hover {
+  color: #FFFFFF;
+}
+
+.nav-link-custom.active {
+  color: #FFD700;
+}

@@ -1,0 +1,28 @@
+.outerMainDiv {
+ background: linear-gradient(135deg, #667eea, #764ba2);
+}
+.mainDiv {
+  width: 350px;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* Title */
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: #111827;
+}
+
+/* Button styling */
+.btn-primary {
+  background-color: #4F46E5;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #4338CA;
+}
