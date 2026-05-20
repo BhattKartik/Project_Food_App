@@ -3,7 +3,7 @@ import { Navbar, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./myNavbar.css";
 
-const MyNavbar = ({search,setSearch}) => {
+const MyNavbar = ({search,setSearch,cartCount}) => {
   return (
     <Navbar bg="primary" variant="dark">
       <Container>
@@ -27,7 +27,7 @@ const MyNavbar = ({search,setSearch}) => {
             <li><Link className="nav-link-custom fs-4" to="/about">About</Link></li>
             <li><Link className="nav-link-custom fs-4" to="/contact">Contact</Link></li>
             <li><Link className="nav-link-custom fs-4" to="/login">Login</Link></li>
-            <li>🛒</li>
+            <h4>🛒 {cartCount}</h4>
           </ul>
 
         </div>

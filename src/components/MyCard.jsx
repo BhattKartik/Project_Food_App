@@ -1,7 +1,7 @@
 import React from 'react'
 import "./myCard.css"
 
-const MyCard = ({ data }) => {
+const MyCard = ({ data ,addToCart}) => {
 
   const { name, price, rating, deliveryTime, category, image } = data;
 
@@ -26,7 +26,7 @@ const MyCard = ({ data }) => {
 
         <div className="card-bottom">
           <h6>₹{price}</h6>
-          <button className="add-btn">Add</button>
+          <button className="add-btn" onClick={()=>addToCart(data)}>Add</button>
         </div>
       </div>
 
