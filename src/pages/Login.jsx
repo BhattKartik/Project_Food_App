@@ -3,6 +3,16 @@ import { Button, Container, Form } from 'react-bootstrap'
 import "./loginCSS.css"
 
 const Login = () => {
+
+function checkLogin(){
+
+  
+}
+
+
+
+
+
   return (
     <Container className='outerMainDiv d-flex justify-content-center align-items-center vh-100'>
 
