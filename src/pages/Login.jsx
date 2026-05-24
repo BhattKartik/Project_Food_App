@@ -1,12 +1,41 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button, Container, Form } from 'react-bootstrap'
 import "./loginCSS.css"
 
 const Login = () => {
 
-function checkLogin(){
+  let [formData,setFormData] = useState({
+    email:"",
+    password:""
+  })
+
+  function captureData(event){
+
+    const {name,value} = event.target;
+
+    setFormData({
+      ...formData,
+      [name]:value
+    })
+  }
+
+function checkLogin(event){
+
+  event.preventDefault();
+  // console.log(formData);
+  
+
+  const {email,password} = formData;
 
   
+
+
+
+
+
+
+
+
 }
 
 
@@ -18,13 +47,16 @@ function checkLogin(){
 
       <div className="mainDiv">
 
-        <Form>
+        <Form onSubmit={checkLogin}>
           <h2 className="title">Login</h2>
 
           <Form.Group controlId='email' className='mb-3'>
             <Form.Control 
               type='email' 
               placeholder='Enter your email'
+              name='email'
+              value={formData.email}
+              onChange={captureData}
             />
           </Form.Group>
 
@@ -32,10 +64,13 @@ function checkLogin(){
             <Form.Control 
               type='password' 
               placeholder='Enter your password'
+              name='password'
+              value={formData.password}
+              onChange={captureData}
             />
           </Form.Group>
 
-          <Button variant='primary' className='w-100'>
+          <Button type='submit' variant='primary' className='w-100'>
             Login
           </Button>
         </Form>
