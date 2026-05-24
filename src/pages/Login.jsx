@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
 import { Button, Container, Form } from 'react-bootstrap'
 import "./loginCSS.css"
+import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
+
+  const navigate = useNavigate();
 
   let [formData,setFormData] = useState({
     email:"",
@@ -22,25 +25,19 @@ const Login = () => {
 function checkLogin(event){
 
   event.preventDefault();
-  // console.log(formData);
-  
 
   const {email,password} = formData;
 
-  
-
-
-
-
-
-
+  if(email === "admin@gmail.com" && password === "admin"){
+    navigate("/home")
+    
+  }
+  else{
+    alert("Invalid Credentiaal")
+  }
 
 
 }
-
-
-
-
 
   return (
     <Container className='outerMainDiv d-flex justify-content-center align-items-center vh-100'>
