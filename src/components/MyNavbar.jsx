@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import { Navbar, Container, Button, Offcanvas, Badge } from "react-bootstrap"; // ✅ Badge added
+import { Navbar, Container, Button, Badge } from "react-bootstrap"; // ✅ Offcanvas removed
 import { Link } from "react-router-dom";
 import "./myNavbar.css";
+import CartOffcanvas from "./CartOffcanvas"; // ✅ import your new component
 
 const MyNavbar = ({ search, setSearch, cartCount }) => {
+
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -13,6 +15,7 @@ const MyNavbar = ({ search, setSearch, cartCount }) => {
     <Navbar bg="primary" variant="dark">
       <Container>
         <div className="d-flex align-items-center justify-content-between w-100 py-3">
+
           {/* Logo */}
           <div className="me-3">LOGO</div>
 
@@ -27,26 +30,10 @@ const MyNavbar = ({ search, setSearch, cartCount }) => {
 
           {/* Nav + Cart */}
           <ul className="d-flex list-unstyled gap-4 mb-0 align-items-center">
-            <li>
-              <Link className="nav-link-custom fs-4" to="/">
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link className="nav-link-custom fs-4" to="/about">
-                About
-              </Link>
-            </li>
-            <li>
-              <Link className="nav-link-custom fs-4" to="/contact">
-                Contact
-              </Link>
-            </li>
-            <li>
-              <Link className="nav-link-custom fs-4" to="/login">
-                Login
-              </Link>
-            </li>
+            <li><Link className="nav-link-custom fs-4" to="/">Home</Link></li>
+            <li><Link className="nav-link-custom fs-4" to="/about">About</Link></li>
+            <li><Link className="nav-link-custom fs-4" to="/contact">Contact</Link></li>
+            <li><Link className="nav-link-custom fs-4" to="/login">Login</Link></li>
 
             <li>
               <Button
@@ -67,23 +54,13 @@ const MyNavbar = ({ search, setSearch, cartCount }) => {
               </Button>
             </li>
           </ul>
+
         </div>
       </Container>
 
-      <Offcanvas
-        show={show}
-        onHide={handleClose}
-        backdrop="static"
-        placement="end"
-      >
-        <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Added Food Items</Offcanvas.Title>
-        </Offcanvas.Header>
-        <Offcanvas.Body>
-          Write the code for the card which will be shown here when we click the
-          add button
-        </Offcanvas.Body>
-      </Offcanvas>
+      {/* ✅ CartOffcanvas component called here */}
+      <CartOffcanvas show={show} handleClose={handleClose} />
+
     </Navbar>
   );
 };
